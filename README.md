@@ -14,4 +14,4 @@ modulo 6 - Exceptions + outros topicos
 
 modulo 7 - Persistencia OO (SETUP)
 
-modulo 8 - Persistencia OO (Generic DAO)
+modulo 8 - Persistencia OO (JPA)
