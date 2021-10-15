@@ -4,9 +4,7 @@ Projetos, exercicios e testes realizados integrando o conhecimento apresentado, 
 
 modulos 3, 4, 5, 6, 7 e 8 de Java foundations
 
-modulo 3 - classes
-
-metodos e atributos
+modulo 3 - classes metodos e atributos
 
 modulo 4 - Herança
 
