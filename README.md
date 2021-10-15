@@ -1,6 +1,6 @@
 # MBA_Fiap
 
-Projetos e testes realizados durante o MBA da FIAPFULL STACK DEVELOPMENT - JAVA - DESIGN, ENGINEERING & DEPLOYMENT
+Projetos e testes realizados durante o MBA da FIAP - FULL STACK DEVELOPMENT - JAVA - DESIGN, ENGINEERING & DEPLOYMENT
 
 modulos 7 e 8 JAVA foundations 
 
