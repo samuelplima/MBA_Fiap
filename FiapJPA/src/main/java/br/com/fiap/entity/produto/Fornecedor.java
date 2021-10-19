@@ -1,7 +1,5 @@
 package br.com.fiap.entity.produto;
-
 import java.util.Calendar;
-
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;

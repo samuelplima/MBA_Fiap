@@ -24,8 +24,8 @@ public class ProgramTesteDAO {
 
 			
 			////////////////////////////////
-			//produto cadastro
-			produto.setNome("Television 4K");
+/*			//produto cadastro
+			produto.setNome("PS5");
 			produto.setDataCalendario(Calendar.getInstance());
 			produto.setDataValidade(Calendar.getInstance());
 			produto.setEstado(Estado.NOVO);
@@ -41,7 +41,7 @@ public class ProgramTesteDAO {
 			
 			////////////////////////////////
 			//fornecedor cadastro
-			fornecedor.setNome("K mart");
+			fornecedor.setNome("Extra");
 			fornecedor.setDataCadastro(Calendar.getInstance());	
 			///////////////////////////////
 			fornecedorDao.salvar(fornecedor);
@@ -60,7 +60,7 @@ public class ProgramTesteDAO {
 			//lista produtos no banco de dados 
 			List<Produto> listaProduto = produtoDao.listar();
 			for(Produto lista : listaProduto) {
-				System.out.println("Id " + lista.getId() + ", nome  " + lista.getNome());
+				System.out.println(lista);
 			}
 			/////////////////////////////
 			
@@ -68,13 +68,13 @@ public class ProgramTesteDAO {
 			//lista fornecedores no banco de dados 
 			List<Fornecedor> listaFornecedor = fornecedorDao.listar();
 			for(Fornecedor lista : listaFornecedor) {
-				System.out.println("Id " + lista.getCodigo() + ", nome  " + lista.getNome());
+				System.out.println(lista);
 			}
 			/////////////////////////////
 			
 			System.out.println("--------------------------------------------------");
 			
-			////////////////////////////
+/*			////////////////////////////
 			//encontra e exclui produto do banco
 			try {
 				System.out.println(produtoDao.recuperar(3));
@@ -96,14 +96,14 @@ public class ProgramTesteDAO {
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
-			///////////////////////////
+*/			///////////////////////////
 
 			
-			////////////////////////////
+/*			////////////////////////////
 			//atualiza produtos
 			try {
-				Produto prodAtualiza = produtoDao.recuperar(2);
-				prodAtualiza.setNome("Sound");
+				Produto prodAtualiza = produtoDao.recuperar(5);
+				prodAtualiza.setNome("CD player");
 				produtoDao.commit();
 			} catch (Exception e) {
 				e.printStackTrace();
@@ -113,13 +113,13 @@ public class ProgramTesteDAO {
 			////////////////////////////
 			//atualiza produtos
 			try {
-				Fornecedor fornAtualiza = fornecedorDao.recuperar(2);
-				fornAtualiza.setNome("Krusty Krabs");
+				Fornecedor fornAtualiza = fornecedorDao.recuperar(4);
+				fornAtualiza.setNome("Carrefour");
 				produtoDao.commit();
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
-			///////////////////////////
+*/			///////////////////////////
 			
 			System.out.println("--------------------------------------------------");
 			System.out.println("Depois das exclusoes e atualizaçoes");
@@ -128,7 +128,7 @@ public class ProgramTesteDAO {
 			//lista produtos no banco de dados 
 			List<Produto> listaProduto1 = produtoDao.listar();
 			for(Produto lista : listaProduto1) {
-				System.out.println("Id " + lista.getId() + ", nome  " + lista.getNome());
+				System.out.println(lista.getNome());
 			}
 			/////////////////////////////
 			
@@ -138,7 +138,7 @@ public class ProgramTesteDAO {
 			//lista fornecedores no banco de dados 
 			List<Fornecedor> listaFornecedor1 = fornecedorDao.listar();
 			for(Fornecedor lista : listaFornecedor1) {
-				System.out.println("Id " + lista.getCodigo() + ", nome  " + lista.getNome());
+				System.out.println(lista.getCodigo());
 			}
 			/////////////////////////////
 			
