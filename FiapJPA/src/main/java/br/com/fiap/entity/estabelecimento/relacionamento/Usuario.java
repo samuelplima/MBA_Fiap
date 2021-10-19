@@ -1,4 +1,4 @@
-package br.com.fiap.entity.estabelecimento;
+package br.com.fiap.entity.estabelecimento.relacionamento;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;

@@ -1,4 +1,4 @@
-package br.com.fiap.entity.dao;
+package br.com.fiap.entity.produto.dao;
 
 import java.lang.reflect.ParameterizedType;
 import java.util.List;

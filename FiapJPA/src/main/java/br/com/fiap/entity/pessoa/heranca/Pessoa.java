@@ -1,4 +1,4 @@
-package br.com.fiap.entity.heranca;
+package br.com.fiap.entity.pessoa.heranca;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
