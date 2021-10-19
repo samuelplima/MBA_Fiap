@@ -1,6 +1,7 @@
 package br.com.fiap.entity.dao;
 
 import java.util.Calendar;
+import java.util.List;
 
 import javax.persistence.EntityManager;
 import javax.persistence.Persistence;
@@ -12,45 +13,134 @@ import br.com.fiap.entity.produto.Produto;
 public class ProgramTesteDAO {
 
 	public static void main(String[] args) {
+			
+		 	EntityManager em = Persistence.createEntityManagerFactory("FiapJPA").
+		 			createEntityManager();
+			
+			ProdutoDAO produtoDao = new ProdutoDAO(em);
+			FornecedorDAO fornecedorDao  = new FornecedorDAO(em);
+			Produto produto = new Produto();
+			Fornecedor fornecedor = new Fornecedor();
 
-		EntityManager em = null;
-		try {
-			
-			em = Persistence.createEntityManagerFactory("FiapJPA").createEntityManager();
-			
-			ProdutoDAO produtodao = new ProdutoDAO(em);
-			FornecedorDAO fornecedordao  = new FornecedorDAO(em);
-			
-			em.getTransaction().begin();
 			
 			////////////////////////////////
-			Produto produto = new Produto();
-			produto.setNome("Microwave");
+			//produto cadastro
+			produto.setNome("Television 4K");
 			produto.setDataCalendario(Calendar.getInstance());
 			produto.setDataValidade(Calendar.getInstance());
 			produto.setEstado(Estado.NOVO);
 			///////////////////////////////
-			produtodao.salvar(produto);
-			///////////////////////////////
+			produtoDao.salvar(produto);
+			//////////////////////////////
+			try {
+				produtoDao.commit();
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+			/////////////////////////////////
 			
 			////////////////////////////////
-			Fornecedor fornecedor = new Fornecedor();
-			fornecedor.setNome("Day´n Light Boose");
+			//fornecedor cadastro
+			fornecedor.setNome("K mart");
 			fornecedor.setDataCadastro(Calendar.getInstance());	
 			///////////////////////////////
-			fornecedordao.salvar(fornecedor);
+			fornecedorDao.salvar(fornecedor);
+			//////////////////////////////
+			try {
+				fornecedorDao.commit();
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
 			///////////////////////////////
 
-			em.getTransaction().commit();
-
-		} catch (Exception e) {
-			System.out.println("Erro no commit");
-			em.getTransaction().rollback();
-		} finally {
-			if (em != null) {
-				em.close();
+			System.out.println("--------------------------------------------------");
+			System.out.println("Antes das exclusoes e atualiaçoes");
+			
+			//////////////////////////////
+			//lista produtos no banco de dados 
+			List<Produto> listaProduto = produtoDao.listar();
+			for(Produto lista : listaProduto) {
+				System.out.println("Id " + lista.getId() + ", nome  " + lista.getNome());
 			}
-			System.exit(0);
-		}
+			/////////////////////////////
+			
+			//////////////////////////////
+			//lista fornecedores no banco de dados 
+			List<Fornecedor> listaFornecedor = fornecedorDao.listar();
+			for(Fornecedor lista : listaFornecedor) {
+				System.out.println("Id " + lista.getCodigo() + ", nome  " + lista.getNome());
+			}
+			/////////////////////////////
+			
+			System.out.println("--------------------------------------------------");
+			
+			////////////////////////////
+			//encontra e exclui produto do banco
+			try {
+				System.out.println(produtoDao.recuperar(3));
+				produtoDao.excluir(3);
+				produtoDao.commit();
+			} catch (Exception e) {
+					e.printStackTrace();
+			}
+			///////////////////////////
+			
+			System.out.println("--------------------------------------------------");
+			
+			////////////////////////////
+			//encontra e exclui fornecedor do banco
+			try {
+				System.out.println(fornecedorDao.recuperar(1));
+				fornecedorDao.excluir(1);
+				fornecedorDao.commit();
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+			///////////////////////////
+
+			
+			////////////////////////////
+			//atualiza produtos
+			try {
+				Produto prodAtualiza = produtoDao.recuperar(2);
+				prodAtualiza.setNome("Sound");
+				produtoDao.commit();
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+			///////////////////////////
+			
+			////////////////////////////
+			//atualiza produtos
+			try {
+				Fornecedor fornAtualiza = fornecedorDao.recuperar(2);
+				fornAtualiza.setNome("Krusty Krabs");
+				produtoDao.commit();
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+			///////////////////////////
+			
+			System.out.println("--------------------------------------------------");
+			System.out.println("Depois das exclusoes e atualizaçoes");
+			
+			//////////////////////////////
+			//lista produtos no banco de dados 
+			List<Produto> listaProduto1 = produtoDao.listar();
+			for(Produto lista : listaProduto1) {
+				System.out.println("Id " + lista.getId() + ", nome  " + lista.getNome());
+			}
+			/////////////////////////////
+			
+			System.out.println("--------------------------------------------------");
+			
+			//////////////////////////////
+			//lista fornecedores no banco de dados 
+			List<Fornecedor> listaFornecedor1 = fornecedorDao.listar();
+			for(Fornecedor lista : listaFornecedor1) {
+				System.out.println("Id " + lista.getCodigo() + ", nome  " + lista.getNome());
+			}
+			/////////////////////////////
+			
 	}
 }

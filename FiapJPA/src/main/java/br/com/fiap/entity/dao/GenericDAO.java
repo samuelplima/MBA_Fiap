@@ -1,13 +1,12 @@
 package br.com.fiap.entity.dao;
 
+import java.lang.reflect.ParameterizedType;
 import java.util.List;
 
 import javax.persistence.EntityManager;
 import javax.persistence.criteria.CriteriaQuery;
 
-import java.lang.reflect.*;
-
-public class GenericDAO<E, C> {
+public abstract class GenericDAO<E, C> {
 
 	protected Class<E> classeEntidade;
 
@@ -23,18 +22,18 @@ public class GenericDAO<E, C> {
 		this.em.persist(entidade);
 	}
 
-	public E recuperar(C chave) {
+	public E recuperar(C chave) throws Exception {
+		if(chave == null) {
+			throw new Exception("Chave não encontrada");			
+		}
 		return this.em.find(classeEntidade, chave);
 	}
 
 	public List<E> listar() {
-		CriteriaQuery<E> query = this.em.getCriteriaBuilder().createQuery(this.classeEntidade);
-		CriteriaQuery<E> select = query.select(query.from(this.classeEntidade));
-
-		return this.em.createQuery(query.select(query.from(this.classeEntidade))).getResultList();
+		return em.createQuery("from " + classeEntidade.getName()).getResultList();
 	}
 
-	public void excluir(C chave) {
+	public void excluir(C chave) throws Exception {
 		E entidadeExcluir = this.recuperar(chave);
 
 		if (entidadeExcluir == null) {
@@ -43,6 +42,18 @@ public class GenericDAO<E, C> {
 		}
 
 		this.em.remove(entidadeExcluir);
+	}
+	
+	public void commit() throws Exception {
+		try {
+			em.getTransaction().begin();
+			em.getTransaction().commit();
+		}catch(Exception e){
+			if(em.getTransaction().isActive()) {
+				em.getTransaction().rollback();
+				throw new Exception("Erro no commit");				
+			}
+		}
 	}
 
 }
