@@ -17,6 +17,9 @@
 		<class>br.com.fiap.entity.pessoa.heranca.Pessoa</class>
 		<class>br.com.fiap.entity.pessoa.heranca.PessoaFisica</class>
 		<class>br.com.fiap.entity.pessoa.heranca.PessoaJuridica</class>
+		<class>br.com.fiap.entity.jpql.escola.Escola</class>
+		<class>br.com.fiap.entity.jpql.escola.Alunos</class>
+		<class>br.com.fiap.entity.jpql.escola.Professores</class>		
 		<properties>
 			<property name="hibernate.show_sql" value="true" />
 			<property name="hibernate.hbm2ddl.auto" value="update" />
