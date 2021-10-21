@@ -22,11 +22,16 @@ public class AlunosDAO extends GenericJpqlDAO<Alunos, Integer>{
 		em.getTransaction().commit();
 	}
 	
-	public void updateAlunos(String nome) throws Exception {
+	public void updateAlunos(int id,String nome) throws Exception {
+		Alunos alunosId = this.em.find(Alunos.class, id);
 		em.getTransaction().begin();
-		em.createQuery("update Alunos e set e.nome =:nome")
-		.setParameter("nome", nome).executeUpdate();
+		if(alunosId == null) {
+			throw new Exception("id nao existe");
+		}
+		else {
+			em.createQuery("update Alunos e set e.nome =:nome where id=:id")
+			.setParameter("id", id).setParameter("nome", nome).executeUpdate();
+		}
 		em.getTransaction().commit();
-	}
-	
+	}	
 }
