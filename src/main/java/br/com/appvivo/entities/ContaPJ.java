@@ -1,34 +1,31 @@
 package br.com.appvivo.entities;
 
-import javax.persistence.Entity;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
-import javax.persistence.Table;
+import java.util.List;
 
-import br.com.appvivo.enuns.Produtos;
+import javax.persistence.Entity;
+import javax.persistence.OneToMany;
+import javax.persistence.Table;
 
 @Entity
 @Table(name = "conta_pj")
 public class ContaPJ extends Conta {
 
-	@ManyToOne
-	@JoinColumn(name = "user_pj_id")
-	private UserPJ userPJ;
+	@OneToMany(mappedBy = "contaPJ", targetEntity = UserPJ.class)
+	private List<UserPJ> userPJ;
 
 	public ContaPJ() {
 	}
 
-	public UserPJ getUserPJ() {
+	public List<UserPJ> getUserPJ() {
 		return userPJ;
 	}
 
-	public void setUserPJ(UserPJ userPJ) {
+	public void setUserPJ(List<UserPJ> userPJ) {
 		this.userPJ = userPJ;
-	}
+	}	
 	
 	@Override
 	public boolean validaConta(String s) {
-		return super.validaConta(s);
+		return validaConta(s);
 	}
-
 }

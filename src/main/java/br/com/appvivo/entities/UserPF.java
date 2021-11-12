@@ -1,10 +1,9 @@
 package br.com.appvivo.entities;
 
-import java.util.List;
-
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.OneToMany;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -17,8 +16,9 @@ public class UserPF extends User{
 	@Column(name="cpf",length=50,nullable=false)
 	private String cpf;	
 	
-	@OneToMany(mappedBy = "userPF", targetEntity = ContaPF.class)
-	private List<UserPF> userPF;
+	@ManyToOne
+	@JoinColumn(name = "conta_pf_id")
+	private ContaPF contaPF;
 	
 	public UserPF() {
 	}	
@@ -44,17 +44,16 @@ public class UserPF extends User{
 		this.cpf = cpf;
 	}	
 
-	public List<UserPF> getUserPF() {
-		return userPF;
+	public ContaPF getContaPF() {
+		return contaPF;
 	}
 
-	public void setUserPF(List<UserPF> userPF) {
-		this.userPF = userPF;
+	public void setContaPF(ContaPF contaPF) {
+		this.contaPF = contaPF;
 	}
 	
 	@Override
 	public boolean validaCpfCnPJ(String cpf) {
-		return super.validaCpfCnPJ(cpf);
+		return validaCpfCnPJ(cpf);
 	}
-
 }

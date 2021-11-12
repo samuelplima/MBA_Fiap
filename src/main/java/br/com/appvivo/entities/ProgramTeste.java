@@ -24,36 +24,39 @@ public class ProgramTeste {
 			em.getTransaction().begin();
 
 			/////////////////////////
-			userPf.setNome("maria");
-			userPf.setCodigoCliente("5678");
-			userPf.setCpf("22222222222");
-			userPf.setSenha("4321");
+			userPf.setNome("joao");
+			userPf.setCodigoCliente("4526");
+			userPf.setCpf("3333333333");
+			userPf.setSenha("8456");
 
 			////////////////////////
-			userPj.setRazaoSocial("samuel MEI");
+			userPj.setRazaoSocial("suelen MEI");
 			userPj.setCodigoCliente("5678");
-			userPj.setCnpj("11111111111111");
-			userPj.setSenha("9876");
+			userPj.setCnpj("4444444444");
+			userPj.setSenha("4596");
 
 			///////////////////////
 			contaPF.setPlanos(Planos.PESSOAL);
 			contaPF.setProdutos(Produtos.INTERNET);
 
 			//////////////////////
-			contaPJ.setPlanos(Planos.EMPRESARIAL);
-			contaPJ.setProdutos(Produtos.TELEFONE);
+			contaPJ.setPlanos(Planos.EMPRESARIAL);			
+			contaPJ.setProdutos(Produtos.INTERNET);
+
 			
 			//////////////////////
-			contaPJ.setUserPJ(userPj);
+			userPj.setContaPJ(contaPJ);
 			
 			/////////////////////
-			contaPF.setUserPF(userPf);;
+			userPf.setContaPF(contaPF);
+
 			
 			/////////////////////
 			contaPF.validaConta(contaPF.getPlanos().toString());
 			
 			////////////////////
 			contaPJ.validaConta(contaPJ.getPlanos().toString());			
+
 			
 			/////////////////////
 			userPf.validaCpfCnPJ(userPf.getCpf());
