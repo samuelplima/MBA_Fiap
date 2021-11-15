@@ -15,7 +15,7 @@ public class ProgramTeste {
 		try {
 
 			em = Persistence.createEntityManagerFactory("app-vivo").createEntityManager();
-
+/*
 			UserPF userPf = new UserPF();
 			UserPJ userPj = new UserPJ();
 			ContaPF contaPF = new ContaPF();
@@ -75,6 +75,7 @@ public class ProgramTeste {
 			em.persist(contaPF);
 //			em.refresh(contaPF);
 			em.getTransaction().commit();
+*/
 
 		} catch (Exception e) {
 

@@ -2,7 +2,11 @@ package br.com.appvivo.dao;
 
 import java.lang.reflect.ParameterizedType;
 import java.util.List;
+
 import javax.persistence.EntityManager;
+
+import br.com.appvivo.entities.UserPJ;
+import br.com.appvivo.enuns.Produtos;
 
 public abstract class GenericDAO<E,C> {
 	

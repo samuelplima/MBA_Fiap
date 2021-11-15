@@ -2,6 +2,10 @@ package br.com.appvivo.enuns;
 
 public enum Produtos {
 	
-	TV, INTERNET, TELEFONE, COMBO;
+	TV,
+	INTERNET,
+	TELEFONE_FIXO,
+	TELEFONE_MOVEL,
+	COMBO;
 
 }
