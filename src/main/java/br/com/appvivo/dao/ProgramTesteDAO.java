@@ -11,6 +11,7 @@ import br.com.appvivo.entities.UserPF;
 import br.com.appvivo.entities.UserPJ;
 import br.com.appvivo.enuns.Planos;
 import br.com.appvivo.enuns.Produtos;
+import br.com.appvivo.enuns.UF;
 
 public class ProgramTesteDAO {
 
@@ -30,7 +31,7 @@ public class ProgramTesteDAO {
 			UserPFDAO userPFDAO = new UserPFDAO(em);
 			UserPJDAO userPJDAO = new UserPJDAO(em);
 
-/*			
+			
 			//cadastro userPF
 			/////////////////////////
 			userPF.setNome("Ursinho TED");
@@ -42,7 +43,8 @@ public class ProgramTesteDAO {
 			userPF.setCidade("abcdeh");
 			userPF.setEmail("abdgeeh@gmail.com");
 			userPF.setRua("avenida abdefgh");
-			userPFDAO.salvar(userPF);
+			userPF.setUf(UF.MG);
+			userPFDAO.salvar(userPF);			
 			userPFDAO.commit();
 
 			//cadastro userPJ
@@ -56,6 +58,7 @@ public class ProgramTesteDAO {
 			userPJ.setCidade("abcdeh");
 			userPJ.setEmail("abdgeeh@gmail.com");
 			userPJ.setRua("avenida abdefgh");
+			userPJ.setUf(UF.AC);
 			userPJDAO.salvar(userPJ);
 			userPJDAO.commit();
 
@@ -84,7 +87,7 @@ public class ProgramTesteDAO {
 			userPJ.setContaPJ(contaPJ);
 			userPJDAO.salvar(userPJ);
 			userPJDAO.commit();
-*/
+
 			//////////////////////////////
 			// lista userPF
 			List<UserPF> listaUserPF = userPFDAO.listar();
