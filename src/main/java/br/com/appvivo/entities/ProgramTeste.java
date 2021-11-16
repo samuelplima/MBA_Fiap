@@ -5,6 +5,7 @@ import javax.persistence.Persistence;
 
 import br.com.appvivo.enuns.Planos;
 import br.com.appvivo.enuns.Produtos;
+import br.com.appvivo.enuns.UF;
 
 public class ProgramTeste {
 
@@ -15,7 +16,7 @@ public class ProgramTeste {
 		try {
 
 			em = Persistence.createEntityManagerFactory("app-vivo").createEntityManager();
-/*
+
 			UserPF userPf = new UserPF();
 			UserPJ userPj = new UserPJ();
 			ContaPF contaPF = new ContaPF();
@@ -28,12 +29,24 @@ public class ProgramTeste {
 			userPf.setCodigoCliente("4526");
 			userPf.setCpf("3333333333");
 			userPf.setSenha("8456");
-
+			userPf.setBairro("abcdefg");
+			userPf.setCep("123456789");
+			userPf.setCidade("campinas");
+			userPf.setEmail("agshsd@gmail.com");
+			userPf.setRua("agaagagagag");
+			userPf.setUf(UF.SP);
+			
 			////////////////////////
 			userPj.setRazaoSocial("suelen MEI");
 			userPj.setCodigoCliente("5678");
 			userPj.setCnpj("4444444444");
 			userPj.setSenha("4596");
+			userPj.setBairro("abcdefg");
+			userPj.setCep("123456789");
+			userPj.setCidade("campinas");
+			userPj.setEmail("agshsd@gmail.com");
+			userPj.setRua("agaagagagag");
+			userPj.setUf(UF.MG);
 
 			///////////////////////
 			contaPF.setPlanos(Planos.PESSOAL);
@@ -52,17 +65,17 @@ public class ProgramTeste {
 
 			
 			/////////////////////
-			contaPF.validaConta(contaPF.getPlanos().toString());
+//			contaPF.validaConta(contaPF.getPlanos().toString());
 			
 			////////////////////
-			contaPJ.validaConta(contaPJ.getPlanos().toString());			
+//			contaPJ.validaConta(contaPJ.getPlanos().toString());			
 
 			
 			/////////////////////
-			userPf.validaCpfCnPJ(userPf.getCpf());
+//			userPf.validaCpfCnPJ(userPf.getCpf());
 			
 			/////////////////////
-			userPj.validaCpfCnPJ(userPj.getCnpj());	
+//			userPj.validaCpfCnPJ(userPj.getCnpj());	
 			System.out.println("------------------------------------------");
 			
 			////////////////////
@@ -75,7 +88,7 @@ public class ProgramTeste {
 			em.persist(contaPF);
 //			em.refresh(contaPF);
 			em.getTransaction().commit();
-*/
+
 
 		} catch (Exception e) {
 

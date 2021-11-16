@@ -2,12 +2,16 @@ package br.com.appvivo.entities;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
 import javax.persistence.SequenceGenerator;
+
+import br.com.appvivo.enuns.UF;
 
 @Entity
 @Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
@@ -40,12 +44,16 @@ public abstract class User {
 	
 	@Column
 	private String cep;
+	
+	@Column(name = "UF")
+	@Enumerated(EnumType.STRING)
+	private UF uf;
 
 	public User() {
 	}		
 	
 	public User(int id, String codigoCliente, String senha, String email, String rua, String bairro, String cidade,
-			String cep) {
+			String cep, UF uf) {
 		super();
 		this.id = id;
 		this.codigoCliente = codigoCliente;
@@ -55,6 +63,7 @@ public abstract class User {
 		this.bairro = bairro;
 		this.cidade = cidade;
 		this.cep = cep;
+		this.uf = uf;
 	}	
 
 	public int getId() {
@@ -121,6 +130,13 @@ public abstract class User {
 		this.cep = cep;
 	}
 	
+	public UF getUf() {
+		return uf;
+	}
+
+	public void setUf(UF uf) {
+		this.uf = uf;
+	}	
 
 	public boolean validaCpfCnPJ(String valida) {
 		String[] s = valida.split("");
@@ -139,6 +155,5 @@ public abstract class User {
 			System.out.println("Dados invalidos.");			
 			return false;
 		}
-	}
-	
+	}	
 }
