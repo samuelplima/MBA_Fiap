@@ -1,5 +1,4 @@
 package br.com.appvivo.dao;
-
 import java.util.List;
 
 import javax.persistence.EntityManager;
@@ -147,8 +146,7 @@ public class ProgramTesteDAO {
 			}
 			System.out.println("--------------------------------------------------");
  			
- 			
-/* 			
+ 					
 			////////////////////////////
 			// atualiza userPF
 			UserPF userPFUpdate = userPFDAO.recuperar(3);
@@ -200,7 +198,6 @@ public class ProgramTesteDAO {
 			contaPJDAO.excluir(2);
 			contaPJDAO.commit();
 			System.out.println("--------------------------------------------------");
-*/
 
 		} catch (Exception e) {
 			if (em != null && em.getTransaction().isActive()) {

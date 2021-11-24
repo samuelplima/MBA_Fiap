@@ -65,28 +65,24 @@ public class ProgramTeste {
 
 			
 			/////////////////////
-//			contaPF.validaConta(contaPF.getPlanos().toString());
+			contaPF.validaConta(contaPF.getPlanos().toString());
 			
 			////////////////////
-//			contaPJ.validaConta(contaPJ.getPlanos().toString());			
+			contaPJ.validaConta(contaPJ.getPlanos().toString());			
 
 			
 			/////////////////////
-//			userPf.validaCpfCnPJ(userPf.getCpf());
+			userPf.validaCpfCnPJ(userPf.getCpf());
 			
 			/////////////////////
-//			userPj.validaCpfCnPJ(userPj.getCnpj());	
+			userPj.validaCpfCnPJ(userPj.getCnpj());	
 			System.out.println("------------------------------------------");
 			
 			////////////////////
 			em.persist(userPf);
-//			em.refresh(userPf);
 			em.persist(userPj);
-//			em.refresh(userPj);
 			em.persist(contaPJ);
-//			em.refresh(contaPJ);
 			em.persist(contaPF);
-//			em.refresh(contaPF);
 			em.getTransaction().commit();
 
 

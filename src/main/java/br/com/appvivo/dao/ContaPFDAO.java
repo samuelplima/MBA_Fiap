@@ -1,5 +1,4 @@
 package br.com.appvivo.dao;
-
 import java.util.List;
 
 import javax.persistence.EntityManager;
