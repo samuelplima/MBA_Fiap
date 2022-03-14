@@ -1,4 +1,4 @@
-# MBA_Fiap_Modulo_1
+# MBA_Fiap_Fase_1
 
 Projetos, exercicios e testes realizados integrando o conhecimento apresentado, durante o MBA da FIAP - FULL STACK DEVELOPMENT - DESIGN, ENGINEERING & DEPLOYMENT.
 
